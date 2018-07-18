@@ -1,0 +1,12 @@
+{
+  "extends": "airbnb-base",
+  "env": {
+    "browser": true,
+    "mocha": true
+  },
+  "rules": {
+    "func-names": "off",
+    "import/no-extraneous-dependencies": "off",
+    "class-methods-use-this": "off"
+  }
+}
