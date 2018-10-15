@@ -2,7 +2,7 @@ angularjs-project-example
 ===
 This is the structure for an `angularjs@1.x.x` project.
 
-#### npm scrips
+#### Common Scripts
 * Download npm dependencies: `npm install`
 * Run unit tests: `npm test`
 * Lint JS and CSS files: `npm run lint`

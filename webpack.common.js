@@ -1,6 +1,9 @@
 const path = require('path');
+const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const packageJson = require('./package.json');
 
 module.exports = {
   entry: {
@@ -53,6 +56,9 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env.VERSION': JSON.stringify(packageJson.version),
+    }),
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/assets/index.ejs'),

@@ -2,7 +2,6 @@ import angular from 'angular';
 import template from './about.html';
 
 import './about.css';
-import angularImage from '../../../assets/images/angularjs.png';
 
 class aboutComponent {
   /* @ngInject */
@@ -12,7 +11,7 @@ class aboutComponent {
   }
 
   $onInit() {
-    this.angularImage = angularImage;
+    this.version = process.env.VERSION;
   }
 }
 
