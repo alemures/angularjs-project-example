@@ -9,6 +9,7 @@ This is the structure for an `angularjs@1.x.x` project.
 * Run app for development: `npm start`
 * Build app for production: `npm run build`
   * Result is placed in "dist" folder
+  * Build app with custom env: `npm run build -- --env.BASE_URL=http://localhost:8080`
 
 #### e2e tests
 * Make sure webdriver is updated: `npm run webdriver:update`

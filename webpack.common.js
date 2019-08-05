@@ -1,11 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const packageJson = require('./package.json');
 
-module.exports = {
+module.exports = env => ({
   entry: {
     app: './src/app/app.js',
   },
@@ -58,8 +58,9 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env.VERSION': JSON.stringify(packageJson.version),
+      'process.env.BASE_URL': JSON.stringify(env ? env.BASE_URL : ''),
     }),
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/assets/index.ejs'),
       favicon: path.resolve(__dirname, 'src/assets/images/favicon.ico'),
@@ -71,11 +72,11 @@ module.exports = {
       chunks: 'all',
       cacheGroups: {
         commons: {
-          test: /\/(node_modules)\//,
+          test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
           chunks: 'all',
         },
       },
     },
   },
-};
+});

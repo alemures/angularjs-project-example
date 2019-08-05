@@ -1,9 +1,9 @@
 const path = require('path');
 const merge = require('webpack-merge');
 const webpack = require('webpack');
-const common = require('./webpack.common.js');
+const commonGenerator = require('./webpack.common.js');
 
-module.exports = merge(common, {
+module.exports = env => merge(commonGenerator(env), {
   mode: 'development',
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
