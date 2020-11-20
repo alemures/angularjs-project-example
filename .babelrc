@@ -1,4 +1,5 @@
 {
   "presets": ["@babel/preset-env"],
-  "plugins": [["angularjs-annotate", { "explicitOnly" : true }]]
+  "plugins": [["angularjs-annotate", { "explicitOnly" : true }]],
+  "env": { "test": { "plugins": ["istanbul"] } }
 }

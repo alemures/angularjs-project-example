@@ -5,7 +5,7 @@ const { expect } = require('chai');
 
 chai.use(chaiAsPromised);
 
-describe('load.e2e', function () {
+describe('load.spec', function () {
   this.timeout(5000);
 
   beforeEach(() => {

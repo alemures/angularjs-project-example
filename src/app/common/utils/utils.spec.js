@@ -1,6 +1,4 @@
 import angular from 'angular';
-import 'angular-mocks';
-
 import { expect } from 'chai';
 
 import './utils.module';

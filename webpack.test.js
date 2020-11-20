@@ -15,3 +15,6 @@ module.exports = {
     ],
   },
 };
+
+// Used by babel applying plugin istanbul
+process.env.NODE_ENV = 'test';

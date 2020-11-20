@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const packageJson = require('./package.json');
 
-module.exports = env => ({
+module.exports = (env) => ({
   entry: {
     app: './src/app/app.js',
   },
@@ -48,10 +48,9 @@ module.exports = env => ({
       },
       {
         test: /\.html$/,
-        use: [{
-          loader: 'html-loader',
-          options: {},
-        }],
+        use: [
+          'html-loader',
+        ],
       },
     ],
   },

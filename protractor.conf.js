@@ -6,6 +6,7 @@ module.exports.config = {
   capabilities: {
     browserName: 'chrome',
   },
+  specs: ['e2e/*.spec.js'],
   onPrepare: () => {
     /* global browser */
     Utils.disableAnimations(browser);

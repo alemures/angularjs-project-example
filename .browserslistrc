@@ -1,0 +1,6 @@
+# Supported browsers used by autoprefixer and babel
+
+> 0.5%
+last 2 versions
+Firefox ESR
+ie 10

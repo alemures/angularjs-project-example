@@ -1,24 +1,27 @@
 const webpackConfig = require('./webpack.test');
 
-module.exports = function (config) {
+process.env.CHROME_BIN = require('puppeteer').executablePath();
+
+module.exports = (config) => {
   config.set({
     frameworks: ['mocha'],
     singleRun: true,
-    browsers: ['PhantomJS'],
-    reporters: [
-      'spec',
-    ],
-    files: [
-      { pattern: 'src/app/*.spec.js', watched: false },
-      { pattern: 'src/app/**/*.spec.js', watched: false },
-    ],
-    preprocessors: {
-      'src/app/*.spec.js': ['webpack', 'sourcemap'],
-      'src/app/**/*.spec.js': ['webpack', 'sourcemap'],
+    browsers: ['ChromeHeadlessNoSandbox'],
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox'],
+      },
     },
+    reporters: ['spec'],
+    files: ['src/app/app.specs.js'],
+    preprocessors: { 'src/app/app.specs.js': ['webpack', 'sourcemap'] },
     webpack: webpackConfig,
-    webpackMiddleware: {
-      stats: 'errors-only',
+    webpackMiddleware: { stats: 'errors-only' },
+    coverageReporter: {
+      type: config.coverage ? config.coverage : 'text-summary',
+      dir: 'coverage/',
+      subdir: '.',
     },
   });
 };
